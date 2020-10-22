@@ -38,12 +38,12 @@
               :class="{ 'is-invalid': form.errors.has('content') }"
             ></textarea>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <input type="hidden" v-model="form.created_at" />
           </div>
           <div class="form-group">
             <input type="hidden" v-model="form.updated_at" />
-          </div>
+          </div> -->
 
           <div class="form-group mt-4">
             <button
@@ -59,8 +59,8 @@
       </div>
       <!-- End first half -->
 
-      <div class="col-12" v-if="newRow == false">
-        <div class="table-responsive">
+      <div class="col-md-12" v-if="newRow == false">
+        <div class="table-responsive p-3">
           <table class="table table-bordered" id="table" v-if="posts.length > 0">
             <thead>
               <tr>
@@ -81,9 +81,9 @@
 
                 <td>{{ post.content }}</td>
 
-                <td>{{ post.created_at }}</td>
+                <td>{{ new Date(post.created_at).toLocaleString() }}</td>
 
-                <td>{{ post.updated_at }}</td>
+                <td>{{ new Date(post.updated_at).toLocaleString() }}</td>
                 <td>
                   <router-link
                     :to="'/post/' + post.id"
@@ -127,8 +127,8 @@ export default {
         id: "",
         title: "",
         content: "",
-        created_at: "",
-        updated_at: "",
+        // created_at: "",
+        // updated_at: "",
       }),
     };
   },
@@ -146,13 +146,13 @@ export default {
       var that = this;
       this.form.post("/api/posts").then(function (response) {
         that.posts.push(response.data);
+        that.newRow = false;
       });
-      this.newRow = false;
       this.form.id = "";
       this.form.title = "";
       this.form.content = "";
-      this.form.created_at = "";
-      this.form.updated_at = "";
+      // this.form.created_at = "";
+      // this.form.updated_at = "";
     },
     deletePost: function (post, index) {
       var that = this;

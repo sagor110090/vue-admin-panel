@@ -1,0 +1,18 @@
+a#show-sidebar {
+    z-index: 20;
+}
+
+/* pagination statt */
+
+li.page-item.pagination-page-nav {
+    margin: 1px;
+}
+
+li.page-item.pagination-page-nav.active { 
+    background: #4285f4 !important;
+}
+
+
+
+a.page-link {color: black !important;}
+/* pagination end */

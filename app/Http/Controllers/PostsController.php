@@ -11,7 +11,7 @@ class PostsController extends Controller
     }
     
     public function list(Request $request){
-      return Posts::get();
+      return Posts::latest()->get();
     }
     
     public function create(Request $request){

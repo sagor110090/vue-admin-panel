@@ -17,8 +17,14 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('asset/css/mdb.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/modules/animations-extended.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('backEnd/css/custom.css') }}">
+    <link rel="stylesheet" href="@sweetalert2/theme-bootstrap-4/bootstrap-4.css">
+
 </head>
 
 <body>
@@ -26,7 +32,7 @@
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    {{-- <script src="{{ asset('/backEnd/js/script.js') }}"></script> --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
 </body>
 
 </html>

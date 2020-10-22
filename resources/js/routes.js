@@ -13,6 +13,8 @@ import PostsList from './components/Posts-list';
 import PostsSingle from './components/Posts-single';
 import TestsList from './components/Tests-list';
 import TestsSingle from './components/Tests-single';
+import StudentsList from './components/Students-list';
+import StudentsSingle from './components/Students-single';
 
 
 
@@ -133,6 +135,32 @@ const router = new VueRouter({
                     path: '',
                     component: TestsSingle,
                     name: "TestsSingle",
+                },
+            ],
+
+        },
+        {
+            path: "/students",
+            component: Admin,
+            meta: { requiresAuth: true },
+            children: [
+                {
+                    path: '',
+                    component: StudentsList,
+                    name: "StudentsList",
+                },
+            ],
+
+        },
+        {
+            path: "/student/:id",
+            component: Admin,
+            meta: { requiresAuth: true },
+            children: [
+                {
+                    path: '',
+                    component: StudentsSingle,
+                    name: "StudentsSingle",
                 },
             ],
 

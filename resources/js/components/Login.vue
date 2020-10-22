@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-header">Login</div>
         <div class="card-body">
-          <div class="alert alert-danger" v-if="errors.email" role="alert">{{errors.email}}</div>
+          <div class="alert alert-danger" v-if="errors" role="alert">{{errors}}</div>
           <div class="form-group row mt-2">
             <label for="email" class="col-md-4 col-form-label text-md-right"
               >Your e-mail</label
@@ -56,7 +56,7 @@ export default {
         email: "",
         password: "",
       },
-      errors: [],
+      errors: '',
     };
   },
   methods: {
@@ -68,7 +68,7 @@ export default {
           this.$router.push({ name: "Dashboard" });
         })
         .catch((error) => {
-          this.errors = error.response.data.errors;
+          this.errors = error.response.data.message;
         });
     },
   },

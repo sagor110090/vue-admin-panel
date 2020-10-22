@@ -38,3 +38,108 @@ Route::get('tests/{id}', 'TestsController@get');
 Route::post('tests', 'TestsController@create');
 Route::put('tests/{id}', 'TestsController@update');
 Route::delete('tests/{id}', 'TestsController@delete');
+
+Route::get('posts', 'PostsController@list');
+Route::get('posts/{id}', 'PostsController@get');
+Route::post('posts', 'PostsController@create');
+Route::put('posts/{id}', 'PostsController@update');
+Route::delete('posts/{id}', 'PostsController@delete');
+
+ 
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/index', 'StudentsController@index');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
+
+Route::get('students', 'StudentsController@list');
+Route::get('students/{id}', 'StudentsController@get');
+Route::post('students', 'StudentsController@create');
+Route::put('students/{id}', 'StudentsController@update');
+Route::delete('students/{id}', 'StudentsController@delete');
