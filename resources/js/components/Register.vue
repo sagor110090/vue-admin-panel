@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-content-center mt-5">
+  <div class="row justify-content-center mt-5 animate-opacity">
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">Register</div>
@@ -19,7 +19,9 @@
                 placeholder="Name"
                 type="text"
                 v-model="form.name"
+                :class="{ 'is-invalid': form.errors.has('name') }"
               />
+              <has-error :form="form" field="name"></has-error>
             </div>
           </div>
           <div class="form-group row mt-4">
@@ -32,7 +34,9 @@
                 placeholder="Email"
                 type="email"
                 v-model="form.email"
+                :class="{ 'is-invalid': form.errors.has('email') }"
               />
+              <has-error :form="form" field="email"></has-error>
             </div>
           </div>
           <div class="form-group row mt-4">
@@ -46,7 +50,9 @@
                 type="password"
                 v-model="form.password"
                 name="password"
+                :class="{ 'is-invalid': form.errors.has('password') }"
               />
+              <has-error :form="form" field="password"></has-error>
             </div>
           </div>
           <div class="form-group row mt-4">
@@ -63,6 +69,7 @@
                 v-model="form.password_confirmation"
                 name="password_confirmation"
               />
+              <has-error :form="form" field="password_confirmation"></has-error>
             </div>
           </div>
           <div class="form-group row mb-0 mt-3">
@@ -70,9 +77,11 @@
               <button
                 @click.prevent="saveForm"
                 type="submit"
-                class="btn btn-success"
+                class="btn btn-success btn-sm"
+                :disabled="form.busy"
               >
                 Register
+                {{ form.busy ? "Please wait..." : "" }}
               </button>
             </div>
           </div>
@@ -83,28 +92,29 @@
 </template>
 <script>
 // import {mapState} from 'vuex';
+import { Form, HasError, AlertError } from "vform";
 export default {
+  components: { HasError },
   data() {
     return {
-      form: {
+      form: new Form({
         name: "",
         email: "",
         password: "",
         password_confirmation: "",
-      },
+      }),
       errors: [],
     };
   },
   methods: {
     saveForm() {
-      axios
-        .post("/api/register", this.form)
-        .then(() => {
+      var that = this;
+      this.form.post("/api/register", this.form).then(function (response) {
           console.log("saved");
-          this.$router.push({ name: "Login" });
+          that.$router.push({ name: "Login" });
         })
         .catch((error) => {
-          this.errors = error.response.data.errors;
+          that.errors = error.response.data.errors;
         });
     },
   },

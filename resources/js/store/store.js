@@ -15,11 +15,14 @@ export default new Vuex.Store({
                 .then(data => {
                     console.log(data.data);
                     let auth = data.data
+                    localStorage.setItem('AuthCheck','true');
                     commit('SET_AUTH', auth)
                 })
-            // .catch((error) => {
-            //     return error;
-            //   });
+            .catch((error) => {
+                localStorage.removeItem("AuthCheck");
+
+                return error;
+              });
 
         }
     },

@@ -1,0 +1,8 @@
+contorller
+
+if($keyword){
+        $data = Students::where('title', 'LIKE', "%$keyword%")
+                ->orWhere('content ', 'LIKE', "%$keyword%")
+                ->latest()->get();
+        return response()->json(['data' => $data]);
+      }

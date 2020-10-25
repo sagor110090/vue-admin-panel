@@ -11,6 +11,14 @@ class StudentsController extends Controller
     }
     
     public function list(Request $request){
+      // dd();
+      $keyword = $request->search;
+      if($keyword){
+        $data = Students::where('title', 'LIKE', "%$keyword%")
+                ->orWhere('content', 'LIKE', "%$keyword%")
+                ->latest()->get();
+        return response()->json(['data' => $data]);
+      }
       return Students::latest()->paginate(10);
     }
     

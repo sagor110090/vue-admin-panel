@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backEnd/css/custom.css') }}">
     <link rel="stylesheet" href="@sweetalert2/theme-bootstrap-4/bootstrap-4.css">
+    
+
 
 </head>
 

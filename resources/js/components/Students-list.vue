@@ -1,5 +1,5 @@
 <template>
-  <div class="students">
+  <div class="students animate-opacity">
     <div class="card">
       <div class="card-header">
         <h6 v-if="newRow == true">Create student</h6>
@@ -61,10 +61,19 @@
 
       <div class="col-12" v-if="newRow == false">
         <div class="table-responsive p-3">
+          <div class="form-group mb-5">
+            <input
+              type="text"
+              class="form-control"
+              v-model="search"
+              v-on:keyup.enter="queryForKeywords"
+              placeholder="Enter for search"
+            />
+          </div>
           <table
             class="table table-bordered"
             id="table"
-            v-if="students.length > 0"
+            v-if="students.data.length > 0"
           >
             <thead>
               <tr>
@@ -138,6 +147,17 @@ export default {
     this.listStudents();
   },
   methods: {
+    queryForKeywords: function (event) {
+      this.$nextTick(() => {
+        var that = this;
+        this.form
+          .get("/api/students?search=" + this.search)
+          .then(function (response) {
+            that.students = response.data;
+          });
+      });
+    },
+
     listStudents: function (page = 1) {
       var that = this;
       this.form.get("/api/students?page=" + page).then(function (response) {
@@ -148,7 +168,8 @@ export default {
       var that = this;
       this.form.post("/api/students").then(function (response) {
         that.successAlert();
-        that.students.data.push(response.data);
+        // that.students.data.push(response.data);
+        that.students.data.splice(0, 0, response.data);
         that.newRow = false;
       });
       this.form.title = "";

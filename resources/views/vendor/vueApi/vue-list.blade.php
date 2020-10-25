@@ -55,6 +55,10 @@
 
             <div class="col-12" v-if="newRow == false">
                 <div class="table-responsive p-3">
+                    <div class="form-group mb-5">
+                    <input type="text"
+                        class="form-control" v-model="search" v-on:keyup.enter="queryForKeywords" placeholder="Enter for search">
+                    </div>
                     <table class="table table-bordered" id="table" v-if="{{ $data['plural_lower'] }}.data.length > 0">
                         <thead>
                             <tr>
@@ -123,6 +127,15 @@ import { Form, HasError, AlertError } from 'vform'
             this.list{{$data['plural']}}();
         },
         methods: {
+            queryForKeywords: function(event) {
+            this.$nextTick(() => {
+                var that = this;         
+                this.form.get('{{config('vueApi.vue_url_prefix')}}/{{ $data['plural_lower'] }}?search=' + this.search).then(function (response) {
+                    that.{{ $data['plural_lower'] }} = response.data;
+                });     
+            });
+            },
+
             list{{ $data['plural'] }}: function(page = 1){
             
             var that = this;
@@ -136,7 +149,8 @@ import { Form, HasError, AlertError } from 'vform'
             var that = this;
             this.form.post('{{config('vueApi.vue_url_prefix')}}/{{ $data['plural_lower'] }}').then(function(response){
                 that.successAlert();
-                that.{{ $data['plural_lower'] }}.data.push(response.data);
+                // that.{{ $data['plural_lower'] }}.data.push(response.data);
+                that.{{ $data['plural_lower'] }}.data.splice(0, 0, response.data);
             that.newRow = false;
             })
             @foreach($data['fields'] as $field)
